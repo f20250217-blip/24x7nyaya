@@ -1,0 +1,148 @@
+/* DO NOT CHANGE */
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* CHANGE VALUES FOR THEME */
+:root {
+  color-scheme: dark;
+  --radius: 0.5rem;
+  --background: #12021f;
+  --foreground: #f8f5ff;
+
+  --card: #1b0f2d;
+  --card-foreground: #fdf8ff;
+
+  --popover: #1b0f2d;
+  --popover-foreground: #fdf8ff;
+
+  --primary: #f7c948;
+  --primary-foreground: #1c0d24;
+
+  --secondary: #6d23b6;
+  --secondary-foreground: #fdf0ff;
+
+  --muted: #2a153f;
+  --muted-foreground: #cfb6ff;
+
+  --accent: #8a1538;
+  --accent-foreground: #fff5f7;
+
+  --destructive: #7f1d1d;
+  --border: #3c1f55;
+  --input: #3c1f55;
+  --ring: #f7c948;
+
+  --chart-1: #f7c948;
+  --chart-2: #b892ff;
+  --chart-3: #ff5f9e;
+  --chart-4: #8a1538;
+  --chart-5: #6d23b6;
+
+  --sidebar: #160b28;
+  --sidebar-foreground: #f8f5ff;
+  --sidebar-primary: #f7c948;
+  --sidebar-primary-foreground: #1c0d24;
+  --sidebar-accent: #6d23b6;
+  --sidebar-accent-foreground: #fdf0ff;
+  --sidebar-border: #3c1f55;
+  --sidebar-ring: #f7c948;
+}
+
+.dark {
+  --background: #12021f;
+  --foreground: #f8f5ff;
+  --card: #1b0f2d;
+  --card-foreground: #fdf8ff;
+  --popover: #1b0f2d;
+  --popover-foreground: #fdf8ff;
+  --primary: #f7c948;
+  --primary-foreground: #1c0d24;
+  --secondary: #6d23b6;
+  --secondary-foreground: #fdf0ff;
+  --muted: #2a153f;
+  --muted-foreground: #cfb6ff;
+  --accent: #8a1538;
+  --accent-foreground: #fff5f7;
+  --destructive: #7f1d1d;
+  --border: #3c1f55;
+  --input: #3c1f55;
+  --ring: #f7c948;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #160035 !important;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 215, 128, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 80% 0%, rgba(129, 70, 231, 0.25) 0%, transparent 55%),
+      linear-gradient(135deg, #2b0066 0%, #3a0a82 45%, #4c0f5a 100%);
+    background-attachment: fixed;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+.glass-panel {
+  @apply backdrop-blur-2xl border border-white/5 text-white;
+  background: linear-gradient(135deg, rgba(109, 35, 182, 0.55), rgba(18, 2, 31, 0.95));
+  border-color: rgba(247, 201, 72, 0.25);
+  box-shadow: 0 25px 70px rgba(12, 3, 22, 0.85), inset 0 0 30px rgba(247, 201, 72, 0.12);
+}
+
+.holographic-text {
+  text-shadow: 0 0 20px rgba(247, 201, 72, 0.8), 0 0 35px rgba(131, 56, 236, 0.55);
+}
+
+.digital-grid {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, rgba(247, 201, 72, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(131, 56, 236, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
