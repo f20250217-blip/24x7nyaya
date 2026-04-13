@@ -3,6 +3,7 @@ import { Shield, Globe, Search, FileText, Building, PenTool, Users, Briefcase, S
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Highlight } from "@/lib/highlight";
 
 // Premium easing curve
 const smoothEase = [0.25, 0.1, 0.25, 1.0];
@@ -24,19 +25,19 @@ export function StatsPanel() {
         </h3>
         <div className="grid grid-cols-2 gap-8">
           <div className="space-y-1">
-            <div className="text-4xl font-bold text-white">60k+</div>
+            <div className="text-4xl font-black text-[#8D1812] tracking-tight">60k+</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.clients")}</div>
           </div>
           <div className="space-y-1">
-            <div className="text-4xl font-bold text-primary">1M+</div>
+            <div className="text-4xl font-black text-primary tracking-tight">1M+</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.reached")}</div>
           </div>
           <div className="space-y-1">
-            <div className="text-4xl font-bold text-white">1000+</div>
+            <div className="text-4xl font-black text-[#8D1812] tracking-tight">1000+</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.lawyers")}</div>
           </div>
           <div className="space-y-1">
-            <div className="text-4xl font-bold text-primary">{t("stats.global")}</div>
+            <div className="text-4xl font-black text-primary tracking-tight">{t("stats.global")}</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.globalDesc")}</div>
           </div>
         </div>
@@ -158,10 +159,13 @@ export function ChiefPatronSection() {
               <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold tracking-widest uppercase mb-4">
                 {t("patron.title")}
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 leading-tight">
-                {t("patron.name")}
+              <h2 className="text-3xl md:text-5xl font-bold mb-2 leading-tight">
+                <Highlight
+                  text={t("patron.name")}
+                  keywords={["Justice", "K.G. Balakrishnan"]}
+                />
               </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-primary to-transparent mx-auto md:mx-0 rounded-full my-6" />
+              <div className="h-1 w-24 bg-gradient-to-r from-[#8D1812] via-primary to-transparent mx-auto md:mx-0 rounded-full my-6" />
             </motion.div>
 
             <motion.div
@@ -172,11 +176,21 @@ export function ChiefPatronSection() {
             >
               <div className="flex items-center gap-3 justify-center md:justify-start text-lg md:text-xl text-muted-foreground">
                 <Gavel className="h-5 w-5 text-primary shrink-0" />
-                <span>{t("patron.role1")}</span>
+                <span>
+                  <Highlight
+                    text={t("patron.role1")}
+                    keywords={["Chief Justice of India", "Chief Justice"]}
+                  />
+                </span>
               </div>
               <div className="flex items-center gap-3 justify-center md:justify-start text-lg md:text-xl text-muted-foreground">
                 <Scale className="h-5 w-5 text-primary shrink-0" />
-                <span>{t("patron.role2")}</span>
+                <span>
+                  <Highlight
+                    text={t("patron.role2")}
+                    keywords={["National Human Rights Commission"]}
+                  />
+                </span>
               </div>
             </motion.div>
           </div>
@@ -207,7 +221,10 @@ export function MissionVisionSection() {
           </div>
           <h3 className="text-2xl font-bold mb-4 text-white">{t("mission.title")}</h3>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            {t("mission.desc")}
+            <Highlight
+              text={t("mission.desc")}
+              keywords={["convenient", "secure", "cost-effective", "legal solution"]}
+            />
           </p>
         </div>
       </motion.div>
@@ -229,7 +246,10 @@ export function MissionVisionSection() {
           </div>
           <h3 className="text-2xl font-bold mb-4 text-white">{t("vision.title")}</h3>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            {t("vision.desc")}
+            <Highlight
+              text={t("vision.desc")}
+              keywords={["one roof", "click of button", "internationally", "domestically"]}
+            />
           </p>
         </div>
       </motion.div>
@@ -311,17 +331,20 @@ export function ConstitutionSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white"
+              className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#8D1812] via-[#A6812A] to-[#8D1812] tracking-tight"
             >
               {t("const.title")}
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              {t("const.desc")}
+              <Highlight
+                text={t("const.desc")}
+                keywords={["supreme law", "26 November 1949", "26 January 1950", "Constitution of India"]}
+              />
             </motion.p>
           </div>
 
@@ -374,9 +397,17 @@ export function FinalCTA() {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10" />
       <div className="relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("cta.title")}</h2>
+        <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+          <Highlight
+            text={t("cta.title")}
+            keywords={["Simpler.", "Quicker.", "Resourceful."]}
+          />
+        </h2>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          {t("cta.desc")}
+          <Highlight
+            text={t("cta.desc")}
+            keywords={["60,000 clients", "justice", "path to justice"]}
+          />
         </p>
         <Link to="/find-lawyer">
           <Button size="lg" className="bg-white text-black hover:bg-white/90 text-lg px-10 h-14 rounded-full font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)]">

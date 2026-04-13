@@ -91,7 +91,7 @@ export function LawsSection() {
           <BookOpen className="h-3 w-3" />
           Legal Awareness
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
+        <h2 className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#8D1812] via-[#A6812A] to-[#8D1812] tracking-tight">
           {t("laws.title")}
         </h2>
       </motion.div>

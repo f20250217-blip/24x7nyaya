@@ -13,6 +13,7 @@ import { GallerySection } from "@/components/GallerySection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { WebGLErrorBoundary } from "@/components/WebGLErrorBoundary";
 import { isWebGLAvailable } from "@/lib/utils";
+import { Highlight } from "@/lib/highlight";
 
 const TRAIL_LENGTH = 32;
 
@@ -321,14 +322,20 @@ export default function Landing() {
               <span className="text-sm font-medium tracking-wider uppercase">{t("hero.systemOnline")}</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#5E0F0C] via-[#A6812A] to-[#8D1812] holographic-text">
-              24x7NYAYA
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 holographic-text">
+              <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#C9A74A] via-[#A6812A] to-[#7A5F1B]">24x7</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#8D1812] via-[#A51C15] to-[#5E0F0C]">NYAYA</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              {t("hero.subtitle")}
+              <Highlight
+                text={t("hero.subtitle")}
+                keywords={["India's", "Legal Assistance", "Legal Consultations", "Counselling", "leading"]}
+              />
               <br />
-              <span className="text-primary/80">{t("hero.bridge")}</span>
+              <span className="text-[#8D1812] font-semibold italic">
+                {t("hero.bridge")}
+              </span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-md mx-auto">
