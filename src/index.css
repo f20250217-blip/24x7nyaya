@@ -72,8 +72,8 @@
   --muted: #ECE2C5;
   --muted-foreground: #5D4C35;
 
-  /* Deep navy — second-tier brand color from the live site, used on dark panels */
-  --accent: #1A243F;
+  /* Deep maroon — darker tone of the brick red, for depth and emphasis */
+  --accent: #5E0F0C;
   --accent-foreground: #FBF5E7;
 
   --destructive: #8D1812;
@@ -83,7 +83,7 @@
 
   --chart-1: #A6812A;
   --chart-2: #8D1812;
-  --chart-3: #1A243F;
+  --chart-3: #5E0F0C;
   --chart-4: #C9A74A;
   --chart-5: #5D4C35;
 
@@ -110,7 +110,7 @@
   --secondary-foreground: #FBF5E7;
   --muted: #ECE2C5;
   --muted-foreground: #5D4C35;
-  --accent: #1A243F;
+  --accent: #5E0F0C;
   --accent-foreground: #FBF5E7;
   --destructive: #8D1812;
   --border: #C9B283;
@@ -165,8 +165,8 @@
     inset 0 1px 0 rgba(255, 251, 232, 0.92),
     inset 0 0 0 1px rgba(201, 178, 131, 0.28),
     0 1px 0 rgba(166, 129, 42, 0.18),
-    0 24px 50px -18px rgba(26, 36, 63, 0.20),
-    0 8px 24px -10px rgba(141, 24, 18, 0.12);
+    0 24px 50px -18px rgba(94, 15, 12, 0.22),
+    0 8px 24px -10px rgba(141, 24, 18, 0.14);
   position: relative;
 }
 .glass-panel::before {

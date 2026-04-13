@@ -321,7 +321,7 @@ export default function Landing() {
               <span className="text-sm font-medium tracking-wider uppercase">{t("hero.systemOnline")}</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1A243F] via-[#A6812A] to-[#8D1812] holographic-text">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#5E0F0C] via-[#A6812A] to-[#8D1812] holographic-text">
               24x7NYAYA
             </h1>
             
@@ -380,7 +380,7 @@ export default function Landing() {
         </div>
 
         {/* Footer */}
-        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/45 bg-gradient-to-b from-[#1A243F] via-[#101827] to-[#070B14] mt-24">
+        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/45 bg-gradient-to-b from-[#5E0F0C] via-[#2E0706] to-[#140302] mt-24">
           {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
