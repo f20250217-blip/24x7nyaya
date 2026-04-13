@@ -9,7 +9,7 @@ import React from "react";
 export function Highlight({
   text,
   keywords,
-  className = "text-[#8D1812] font-semibold",
+  className = "text-[#C8141E] font-semibold",
 }: {
   text: string;
   keywords: string[];

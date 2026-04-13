@@ -31,7 +31,7 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="on-dark sticky top-0 z-50 w-full border-b border-[#A6812A]/45 bg-gradient-to-r from-[#5E0F0C]/93 via-[#450A08]/90 to-[#5E0F0C]/93 backdrop-blur-md shadow-[0_1px_0_rgba(166,129,42,0.22),0_8px_24px_-12px_rgba(94,15,12,0.4)]">
+    <nav className="on-dark sticky top-0 z-50 w-full border-b border-[#A6812A]/45 bg-gradient-to-r from-[#8B0E16]/93 via-[#6E0810]/90 to-[#8B0E16]/93 backdrop-blur-md shadow-[0_1px_0_rgba(166,129,42,0.22),0_8px_24px_-12px_rgba(139,14,22,0.4)]">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white">

@@ -44,7 +44,7 @@
 
 /* ============================================================
    24x7NYAYA — HERITAGE LEGAL LUXURY
-   Creamy Ivory · Heritage Brick-Red (#8D1812) · Antique Gold · Deep Navy
+   Creamy Ivory · Heritage Brick-Red (#C8141E) · Antique Gold · Deep Navy
    Palette aligned with the live client site (24x7nyaya.com).
    ============================================================ */
 :root {
@@ -66,24 +66,24 @@
   --primary-foreground: #141007;
 
   /* Heritage brick red — exact match to the live 24x7nyaya.com brand color */
-  --secondary: #8D1812;
+  --secondary: #C8141E;
   --secondary-foreground: #FBF5E7;
 
   --muted: #ECE2C5;
   --muted-foreground: #5D4C35;
 
   /* Deep maroon — darker tone of the brick red, for depth and emphasis */
-  --accent: #5E0F0C;
+  --accent: #8B0E16;
   --accent-foreground: #FBF5E7;
 
-  --destructive: #8D1812;
+  --destructive: #C8141E;
   --border: #C9B283;
   --input: #DCC998;
   --ring: #A6812A;
 
   --chart-1: #A6812A;
-  --chart-2: #8D1812;
-  --chart-3: #5E0F0C;
+  --chart-2: #C8141E;
+  --chart-3: #8B0E16;
   --chart-4: #C9A74A;
   --chart-5: #5D4C35;
 
@@ -91,7 +91,7 @@
   --sidebar-foreground: #191919;
   --sidebar-primary: #A6812A;
   --sidebar-primary-foreground: #141007;
-  --sidebar-accent: #8D1812;
+  --sidebar-accent: #C8141E;
   --sidebar-accent-foreground: #FBF5E7;
   --sidebar-border: #C9B283;
   --sidebar-ring: #A6812A;
@@ -106,13 +106,13 @@
   --popover-foreground: #191919;
   --primary: #A6812A;
   --primary-foreground: #141007;
-  --secondary: #8D1812;
+  --secondary: #C8141E;
   --secondary-foreground: #FBF5E7;
   --muted: #ECE2C5;
   --muted-foreground: #5D4C35;
-  --accent: #5E0F0C;
+  --accent: #8B0E16;
   --accent-foreground: #FBF5E7;
-  --destructive: #8D1812;
+  --destructive: #C8141E;
   --border: #C9B283;
   --input: #DCC998;
   --ring: #A6812A;
@@ -128,9 +128,9 @@
     /* Layered creamy paper: gold halo top, brick-red vignette bottom, subtle navy undertone */
     background-image:
       radial-gradient(ellipse 60% 40% at 50% 0%, rgba(166, 129, 42, 0.14) 0%, transparent 65%),
-      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(141, 24, 18, 0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(200, 20, 30, 0.09) 0%, transparent 70%),
       radial-gradient(circle at 10% 30%, rgba(166, 129, 42, 0.05) 0%, transparent 42%),
-      radial-gradient(circle at 90% 70%, rgba(141, 24, 18, 0.05) 0%, transparent 42%),
+      radial-gradient(circle at 90% 70%, rgba(200, 20, 30, 0.05) 0%, transparent 42%),
       linear-gradient(180deg, #FAF4E4 0%, #F4EDDB 55%, #EEE5C9 100%);
     background-attachment: fixed;
     font-feature-settings: "ss01", "ss02", "cv11", "salt";
@@ -146,7 +146,7 @@
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #EEE5C9; }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #A6812A, #8D1812);
+    background: linear-gradient(180deg, #A6812A, #C8141E);
     border-radius: 10px;
     border: 2px solid #EEE5C9;
   }
@@ -165,8 +165,8 @@
     inset 0 1px 0 rgba(255, 251, 232, 0.92),
     inset 0 0 0 1px rgba(201, 178, 131, 0.28),
     0 1px 0 rgba(166, 129, 42, 0.18),
-    0 24px 50px -18px rgba(94, 15, 12, 0.22),
-    0 8px 24px -10px rgba(141, 24, 18, 0.14);
+    0 24px 50px -18px rgba(139, 14, 22, 0.22),
+    0 8px 24px -10px rgba(200, 20, 30, 0.14);
   position: relative;
 }
 .glass-panel::before {
@@ -183,14 +183,14 @@
   text-shadow:
     0 1px 0 rgba(255, 251, 232, 0.6),
     0 2px 16px rgba(166, 129, 42, 0.38),
-    0 1px 2px rgba(141, 24, 18, 0.28);
+    0 1px 2px rgba(200, 20, 30, 0.28);
   letter-spacing: -0.02em;
 }
 
 .digital-grid {
   background-size: 72px 72px;
   background-image:
-    linear-gradient(to right, rgba(141, 24, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(200, 20, 30, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(166, 129, 42, 0.05) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
 }
