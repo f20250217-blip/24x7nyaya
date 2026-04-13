@@ -42,71 +42,80 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* CHANGE VALUES FOR THEME */
+/* ============================================================
+   EDITORIAL LUXURY THEME
+   Parchment Ivory · Bordeaux Oxblood · Antique Champagne Gold
+   Reference mood: Cartier / Hermès / Taj Palace stationery
+   ============================================================ */
 :root {
-  color-scheme: dark;
-  --radius: 0.5rem;
-  --background: #12021f;
-  --foreground: #f8f5ff;
+  color-scheme: light;
+  --radius: 0.375rem;
 
-  --card: #1b0f2d;
-  --card-foreground: #fdf8ff;
+  /* Warm parchment paper — NOT yellow. Desaturated ivory with a touch of stone. */
+  --background: #F1E8D0;
+  --foreground: #161210;
 
-  --popover: #1b0f2d;
-  --popover-foreground: #fdf8ff;
+  --card: #F9F1DA;
+  --card-foreground: #161210;
 
-  --primary: #f7c948;
-  --primary-foreground: #1c0d24;
+  --popover: #F9F1DA;
+  --popover-foreground: #161210;
 
-  --secondary: #6d23b6;
-  --secondary-foreground: #fdf0ff;
+  /* Antique champagne gold — muted, aged. Never bright yellow. */
+  --primary: #A6812A;
+  --primary-foreground: #14100C;
 
-  --muted: #2a153f;
-  --muted-foreground: #cfb6ff;
+  /* Oxblood / Bordeaux — deep, restrained aristocratic red. Never scarlet. */
+  --secondary: #5A0F1B;
+  --secondary-foreground: #F1E8D0;
 
-  --accent: #8a1538;
-  --accent-foreground: #fff5f7;
+  --muted: #E4D6B4;
+  --muted-foreground: #5B4A2E;
 
-  --destructive: #7f1d1d;
-  --border: #3c1f55;
-  --input: #3c1f55;
-  --ring: #f7c948;
+  /* Deepest burgundy — used sparingly for emphasis & depth */
+  --accent: #3A0810;
+  --accent-foreground: #F1E8D0;
 
-  --chart-1: #f7c948;
-  --chart-2: #b892ff;
-  --chart-3: #ff5f9e;
-  --chart-4: #8a1538;
-  --chart-5: #6d23b6;
+  --destructive: #5A0F1B;
+  --border: #BFA670;
+  --input: #D9C48A;
+  --ring: #A6812A;
 
-  --sidebar: #160b28;
-  --sidebar-foreground: #f8f5ff;
-  --sidebar-primary: #f7c948;
-  --sidebar-primary-foreground: #1c0d24;
-  --sidebar-accent: #6d23b6;
-  --sidebar-accent-foreground: #fdf0ff;
-  --sidebar-border: #3c1f55;
-  --sidebar-ring: #f7c948;
+  --chart-1: #A6812A;
+  --chart-2: #5A0F1B;
+  --chart-3: #3A0810;
+  --chart-4: #C9A74A;
+  --chart-5: #5B4A2E;
+
+  --sidebar: #F1E8D0;
+  --sidebar-foreground: #161210;
+  --sidebar-primary: #A6812A;
+  --sidebar-primary-foreground: #14100C;
+  --sidebar-accent: #5A0F1B;
+  --sidebar-accent-foreground: #F1E8D0;
+  --sidebar-border: #BFA670;
+  --sidebar-ring: #A6812A;
 }
 
 .dark {
-  --background: #12021f;
-  --foreground: #f8f5ff;
-  --card: #1b0f2d;
-  --card-foreground: #fdf8ff;
-  --popover: #1b0f2d;
-  --popover-foreground: #fdf8ff;
-  --primary: #f7c948;
-  --primary-foreground: #1c0d24;
-  --secondary: #6d23b6;
-  --secondary-foreground: #fdf0ff;
-  --muted: #2a153f;
-  --muted-foreground: #cfb6ff;
-  --accent: #8a1538;
-  --accent-foreground: #fff5f7;
-  --destructive: #7f1d1d;
-  --border: #3c1f55;
-  --input: #3c1f55;
-  --ring: #f7c948;
+  --background: #F1E8D0;
+  --foreground: #161210;
+  --card: #F9F1DA;
+  --card-foreground: #161210;
+  --popover: #F9F1DA;
+  --popover-foreground: #161210;
+  --primary: #A6812A;
+  --primary-foreground: #14100C;
+  --secondary: #5A0F1B;
+  --secondary-foreground: #F1E8D0;
+  --muted: #E4D6B4;
+  --muted-foreground: #5B4A2E;
+  --accent: #3A0810;
+  --accent-foreground: #F1E8D0;
+  --destructive: #5A0F1B;
+  --border: #BFA670;
+  --input: #D9C48A;
+  --ring: #A6812A;
 }
 
 @layer base {
@@ -115,34 +124,105 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #160035 !important;
+    background-color: #F1E8D0 !important;
+    /* Layered parchment: soft gold halo top, oxblood vignette bottom, paper gradient */
     background-image:
-      radial-gradient(circle at 20% 20%, rgba(255, 215, 128, 0.18) 0%, transparent 50%),
-      radial-gradient(circle at 80% 0%, rgba(129, 70, 231, 0.25) 0%, transparent 55%),
-      linear-gradient(135deg, #2b0066 0%, #3a0a82 45%, #4c0f5a 100%);
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(166, 129, 42, 0.16) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(90, 15, 27, 0.10) 0%, transparent 70%),
+      radial-gradient(circle at 10% 30%, rgba(166, 129, 42, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(90, 15, 27, 0.05) 0%, transparent 40%),
+      linear-gradient(180deg, #F4ECD6 0%, #EFE5C8 55%, #E8DCB8 100%);
     background-attachment: fixed;
+    font-feature-settings: "ss01", "ss02", "cv11", "salt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
+
+  /* Scrollbar — brass on parchment */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #E8DCB8; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #A6812A, #5A0F1B);
+    border-radius: 10px;
+    border: 2px solid #E8DCB8;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #C9A74A, #7A1624); }
+
+  ::selection { background: #A6812A; color: #14100C; }
 }
 
+/* ---- Editorial glass card: layered warm paper with gold hairline ---- */
 .glass-panel {
-  @apply backdrop-blur-2xl border border-white/5 text-white;
-  background: linear-gradient(135deg, rgba(109, 35, 182, 0.55), rgba(18, 2, 31, 0.95));
-  border-color: rgba(247, 201, 72, 0.25);
-  box-shadow: 0 25px 70px rgba(12, 3, 22, 0.85), inset 0 0 30px rgba(247, 201, 72, 0.12);
+  @apply backdrop-blur-xl border text-foreground;
+  background:
+    linear-gradient(135deg, rgba(251, 244, 225, 0.94), rgba(239, 229, 202, 0.82));
+  border-color: rgba(166, 129, 42, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 249, 225, 0.9),
+    inset 0 0 0 1px rgba(191, 166, 112, 0.25),
+    0 1px 0 rgba(166, 129, 42, 0.15),
+    0 24px 50px -18px rgba(58, 8, 16, 0.22),
+    0 8px 24px -10px rgba(90, 15, 27, 0.12);
+  position: relative;
+}
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent 0%, rgba(166, 129, 42, 0.05) 50%, transparent 100%);
 }
 
+/* Hero title — restrained warm glow, single-source gold */
 .holographic-text {
-  text-shadow: 0 0 20px rgba(247, 201, 72, 0.8), 0 0 35px rgba(131, 56, 236, 0.55);
+  text-shadow:
+    0 1px 0 rgba(255, 249, 225, 0.55),
+    0 2px 16px rgba(166, 129, 42, 0.35),
+    0 1px 2px rgba(58, 8, 16, 0.25);
+  letter-spacing: -0.02em;
 }
 
 .digital-grid {
-  background-size: 60px 60px;
+  background-size: 72px 72px;
   background-image:
-    linear-gradient(to right, rgba(247, 201, 72, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(131, 56, 236, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(90, 15, 27, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(166, 129, 42, 0.045) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+/* ---- Theme bridge: re-map hard-coded white/black utilities so existing
+   components read correctly on the parchment background. Use `.on-dark`
+   on any container (navbar, footer, hero CTAs over dark imagery) to
+   restore their original light meaning. ---- */
+.text-white:not(.on-dark .text-white) { color: var(--foreground) !important; }
+.text-black:not(.on-dark .text-black) { color: var(--primary-foreground) !important; }
+.bg-white:not(.on-dark .bg-white) { background-color: var(--card) !important; }
+.bg-white\/5:not(.on-dark *)  { background-color: rgba(22, 18, 16, 0.04) !important; }
+.bg-white\/10:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.07) !important; }
+.bg-white\/30:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.20) !important; }
+.bg-white\/50:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.35) !important; }
+.bg-white\/90:not(.on-dark *) { background-color: rgba(249, 241, 218, 0.94) !important; }
+.border-white\/5:not(.on-dark *)  { border-color: rgba(166, 129, 42, 0.18) !important; }
+.border-white\/10:not(.on-dark *) { border-color: rgba(166, 129, 42, 0.28) !important; }
+.bg-black\/20:not(.on-dark *) { background-color: rgba(58, 8, 16, 0.15) !important; }
+.bg-black\/40:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.32) !important; }
+.bg-black\/50:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.42) !important; }
+.bg-black\/60:not(.on-dark *) { background-color: rgba(22, 18, 16, 0.52) !important; }
+
+/* Dark panels (navbar / footer / hero overlay bars) */
+.on-dark .text-white { color: #F4ECD6 !important; }
+.on-dark .text-muted-foreground { color: rgba(244, 236, 214, 0.65) !important; }
+.on-dark .bg-white\/5  { background-color: rgba(244, 236, 214, 0.05) !important; }
+.on-dark .bg-white\/10 { background-color: rgba(244, 236, 214, 0.09) !important; }
+.on-dark .border-white\/10 { border-color: rgba(166, 129, 42, 0.32) !important; }
+
+/* Hairline gold divider utility for editorial touches */
+.hairline-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(166, 129, 42, 0.6), transparent);
 }

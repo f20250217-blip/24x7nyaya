@@ -235,7 +235,7 @@ export default function Landing() {
   );
 
   return (
-    <div className="min-h-screen bg-[#13002b] text-white overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
       <Navbar />
       <SideWords />
       
@@ -259,8 +259,8 @@ export default function Landing() {
               <Suspense fallback={null}>
                 <JudicialModel scrollProgress={scrollProgress} isMobile={isMobile} />
               </Suspense>
-              {/* Pure Black Fog */}
-              <fog attach="fog" args={['#000000', 5, 30]} />
+              {/* Parchment fog — blends 3D model into the editorial paper background */}
+              <fog attach="fog" args={['#F1E8D0', 5, 30]} />
             </Canvas>
           </WebGLErrorBoundary>
         ) : (
@@ -268,14 +268,14 @@ export default function Landing() {
         )}
         
         <div
-          className="absolute inset-0 z-20 pointer-events-none mix-blend-screen"
+          className="absolute inset-0 z-20 pointer-events-none mix-blend-multiply"
           style={{
-            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(247, 201, 72, 0.35), rgba(109, 35, 182, 0.08) 45%, transparent 70%)`,
-            filter: "blur(80px)",
-            opacity: 0.9,
+            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(166, 129, 42, 0.30), rgba(90, 15, 27, 0.10) 40%, transparent 70%)`,
+            filter: "blur(90px)",
+            opacity: 0.8,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2d0e4f]/30 to-[#090015]/90 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#EFE5C8]/25 to-[#F1E8D0]/85 z-10" />
         <div className="absolute inset-0 digital-grid opacity-20 z-0" />
       </div>
 
@@ -293,8 +293,8 @@ export default function Landing() {
                 height: "2px",
                 opacity,
                 transform: `translate(-50%, -50%) rotate(${(segment.angle * 180) / Math.PI}deg)`,
-                background: "linear-gradient(90deg, rgba(247,201,72,0), rgba(247,201,72,0.8), rgba(247,201,72,0))",
-                boxShadow: "0 0 18px rgba(247,201,72,0.35)",
+                background: "linear-gradient(90deg, rgba(166,129,42,0), rgba(166,129,42,0.85), rgba(90,15,27,0.6), rgba(166,129,42,0))",
+                boxShadow: "0 0 18px rgba(166,129,42,0.35)",
                 borderRadius: "999px",
               }}
             />
@@ -321,7 +321,7 @@ export default function Landing() {
               <span className="text-sm font-medium tracking-wider uppercase">{t("hero.systemOnline")}</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white holographic-text">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#3A0810] via-[#A6812A] to-[#5A0F1B] holographic-text">
               24x7NYAYA
             </h1>
             
@@ -380,7 +380,7 @@ export default function Landing() {
         </div>
 
         {/* Footer */}
-        <footer className="relative overflow-hidden border-t border-primary/20 bg-gradient-to-b from-[#2b0a54] via-[#14022f] to-[#070013] mt-24">
+        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/40 bg-gradient-to-b from-[#2A0810] via-[#140508] to-[#0A0305] mt-24">
           {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
