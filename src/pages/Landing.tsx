@@ -259,8 +259,8 @@ export default function Landing() {
               <Suspense fallback={null}>
                 <JudicialModel scrollProgress={scrollProgress} isMobile={isMobile} />
               </Suspense>
-              {/* Parchment fog — blends 3D model into the editorial paper background */}
-              <fog attach="fog" args={['#F1E8D0', 5, 30]} />
+              {/* Creamy ivory fog — blends 3D model into the heritage paper background */}
+              <fog attach="fog" args={['#F7F0DF', 5, 30]} />
             </Canvas>
           </WebGLErrorBoundary>
         ) : (
@@ -270,12 +270,12 @@ export default function Landing() {
         <div
           className="absolute inset-0 z-20 pointer-events-none mix-blend-multiply"
           style={{
-            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(166, 129, 42, 0.30), rgba(90, 15, 27, 0.10) 40%, transparent 70%)`,
+            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(166, 129, 42, 0.30), rgba(141, 24, 18, 0.10) 40%, transparent 70%)`,
             filter: "blur(90px)",
             opacity: 0.8,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#EFE5C8]/25 to-[#F1E8D0]/85 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F4EDDB]/25 to-[#F7F0DF]/85 z-10" />
         <div className="absolute inset-0 digital-grid opacity-20 z-0" />
       </div>
 
@@ -293,7 +293,7 @@ export default function Landing() {
                 height: "2px",
                 opacity,
                 transform: `translate(-50%, -50%) rotate(${(segment.angle * 180) / Math.PI}deg)`,
-                background: "linear-gradient(90deg, rgba(166,129,42,0), rgba(166,129,42,0.85), rgba(90,15,27,0.6), rgba(166,129,42,0))",
+                background: "linear-gradient(90deg, rgba(166,129,42,0), rgba(166,129,42,0.85), rgba(141,24,18,0.6), rgba(166,129,42,0))",
                 boxShadow: "0 0 18px rgba(166,129,42,0.35)",
                 borderRadius: "999px",
               }}
@@ -321,7 +321,7 @@ export default function Landing() {
               <span className="text-sm font-medium tracking-wider uppercase">{t("hero.systemOnline")}</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#3A0810] via-[#A6812A] to-[#5A0F1B] holographic-text">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1A243F] via-[#A6812A] to-[#8D1812] holographic-text">
               24x7NYAYA
             </h1>
             
@@ -380,7 +380,7 @@ export default function Landing() {
         </div>
 
         {/* Footer */}
-        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/40 bg-gradient-to-b from-[#2A0810] via-[#140508] to-[#0A0305] mt-24">
+        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/45 bg-gradient-to-b from-[#1A243F] via-[#101827] to-[#070B14] mt-24">
           {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />

@@ -43,78 +43,78 @@
 }
 
 /* ============================================================
-   EDITORIAL LUXURY THEME
-   Parchment Ivory · Bordeaux Oxblood · Antique Champagne Gold
-   Reference mood: Cartier / Hermès / Taj Palace stationery
+   24x7NYAYA — HERITAGE LEGAL LUXURY
+   Creamy Ivory · Heritage Brick-Red (#8D1812) · Antique Gold · Deep Navy
+   Palette aligned with the live client site (24x7nyaya.com).
    ============================================================ */
 :root {
   color-scheme: light;
   --radius: 0.375rem;
 
-  /* Warm parchment paper — NOT yellow. Desaturated ivory with a touch of stone. */
-  --background: #F1E8D0;
-  --foreground: #161210;
+  /* Creamy white — soft, warm, low-saturation ivory (no yellow cast) */
+  --background: #F7F0DF;
+  --foreground: #191919;
 
-  --card: #F9F1DA;
-  --card-foreground: #161210;
+  --card: #FBF5E7;
+  --card-foreground: #191919;
 
-  --popover: #F9F1DA;
-  --popover-foreground: #161210;
+  --popover: #FBF5E7;
+  --popover-foreground: #191919;
 
-  /* Antique champagne gold — muted, aged. Never bright yellow. */
+  /* Antique champagne gold — refined heritage gold that harmonizes with brick red */
   --primary: #A6812A;
-  --primary-foreground: #14100C;
+  --primary-foreground: #141007;
 
-  /* Oxblood / Bordeaux — deep, restrained aristocratic red. Never scarlet. */
-  --secondary: #5A0F1B;
-  --secondary-foreground: #F1E8D0;
+  /* Heritage brick red — exact match to the live 24x7nyaya.com brand color */
+  --secondary: #8D1812;
+  --secondary-foreground: #FBF5E7;
 
-  --muted: #E4D6B4;
-  --muted-foreground: #5B4A2E;
+  --muted: #ECE2C5;
+  --muted-foreground: #5D4C35;
 
-  /* Deepest burgundy — used sparingly for emphasis & depth */
-  --accent: #3A0810;
-  --accent-foreground: #F1E8D0;
+  /* Deep navy — second-tier brand color from the live site, used on dark panels */
+  --accent: #1A243F;
+  --accent-foreground: #FBF5E7;
 
-  --destructive: #5A0F1B;
-  --border: #BFA670;
-  --input: #D9C48A;
+  --destructive: #8D1812;
+  --border: #C9B283;
+  --input: #DCC998;
   --ring: #A6812A;
 
   --chart-1: #A6812A;
-  --chart-2: #5A0F1B;
-  --chart-3: #3A0810;
+  --chart-2: #8D1812;
+  --chart-3: #1A243F;
   --chart-4: #C9A74A;
-  --chart-5: #5B4A2E;
+  --chart-5: #5D4C35;
 
-  --sidebar: #F1E8D0;
-  --sidebar-foreground: #161210;
+  --sidebar: #F7F0DF;
+  --sidebar-foreground: #191919;
   --sidebar-primary: #A6812A;
-  --sidebar-primary-foreground: #14100C;
-  --sidebar-accent: #5A0F1B;
-  --sidebar-accent-foreground: #F1E8D0;
-  --sidebar-border: #BFA670;
+  --sidebar-primary-foreground: #141007;
+  --sidebar-accent: #8D1812;
+  --sidebar-accent-foreground: #FBF5E7;
+  --sidebar-border: #C9B283;
   --sidebar-ring: #A6812A;
 }
 
 .dark {
-  --background: #F1E8D0;
-  --foreground: #161210;
-  --card: #F9F1DA;
-  --card-foreground: #161210;
-  --popover: #F9F1DA;
-  --popover-foreground: #161210;
+  --background: #F7F0DF;
+  --foreground: #191919;
+  --card: #FBF5E7;
+  --card-foreground: #191919;
+  --popover: #FBF5E7;
+  --popover-foreground: #191919;
   --primary: #A6812A;
-  --primary-foreground: #14100C;
-  --secondary: #5A0F1B;
-  --secondary-foreground: #F1E8D0;
-  --muted: #E4D6B4;
-  --muted-foreground: #5B4A2E;
-  --accent: #3A0810;
-  --accent-foreground: #F1E8D0;
-  --destructive: #5A0F1B;
-  --border: #BFA670;
-  --input: #D9C48A;
+  --primary-foreground: #141007;
+  --secondary: #8D1812;
+  --secondary-foreground: #FBF5E7;
+  --muted: #ECE2C5;
+  --muted-foreground: #5D4C35;
+  --accent: #1A243F;
+  --accent-foreground: #FBF5E7;
+  --destructive: #8D1812;
+  --border: #C9B283;
+  --input: #DCC998;
   --ring: #A6812A;
 }
 
@@ -124,14 +124,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #F1E8D0 !important;
-    /* Layered parchment: soft gold halo top, oxblood vignette bottom, paper gradient */
+    background-color: #F7F0DF !important;
+    /* Layered creamy paper: gold halo top, brick-red vignette bottom, subtle navy undertone */
     background-image:
-      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(166, 129, 42, 0.16) 0%, transparent 65%),
-      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(90, 15, 27, 0.10) 0%, transparent 70%),
-      radial-gradient(circle at 10% 30%, rgba(166, 129, 42, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 90% 70%, rgba(90, 15, 27, 0.05) 0%, transparent 40%),
-      linear-gradient(180deg, #F4ECD6 0%, #EFE5C8 55%, #E8DCB8 100%);
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(166, 129, 42, 0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(141, 24, 18, 0.09) 0%, transparent 70%),
+      radial-gradient(circle at 10% 30%, rgba(166, 129, 42, 0.05) 0%, transparent 42%),
+      radial-gradient(circle at 90% 70%, rgba(141, 24, 18, 0.05) 0%, transparent 42%),
+      linear-gradient(180deg, #FAF4E4 0%, #F4EDDB 55%, #EEE5C9 100%);
     background-attachment: fixed;
     font-feature-settings: "ss01", "ss02", "cv11", "salt";
     -webkit-font-smoothing: antialiased;
@@ -144,13 +144,13 @@
 
   /* Scrollbar — brass on parchment */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: #E8DCB8; }
+  ::-webkit-scrollbar-track { background: #EEE5C9; }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #A6812A, #5A0F1B);
+    background: linear-gradient(180deg, #A6812A, #8D1812);
     border-radius: 10px;
-    border: 2px solid #E8DCB8;
+    border: 2px solid #EEE5C9;
   }
-  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #C9A74A, #7A1624); }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #C9A74A, #A32419); }
 
   ::selection { background: #A6812A; color: #14100C; }
 }
@@ -159,14 +159,14 @@
 .glass-panel {
   @apply backdrop-blur-xl border text-foreground;
   background:
-    linear-gradient(135deg, rgba(251, 244, 225, 0.94), rgba(239, 229, 202, 0.82));
-  border-color: rgba(166, 129, 42, 0.35);
+    linear-gradient(135deg, rgba(251, 245, 231, 0.95), rgba(244, 237, 219, 0.85));
+  border-color: rgba(166, 129, 42, 0.38);
   box-shadow:
-    inset 0 1px 0 rgba(255, 249, 225, 0.9),
-    inset 0 0 0 1px rgba(191, 166, 112, 0.25),
-    0 1px 0 rgba(166, 129, 42, 0.15),
-    0 24px 50px -18px rgba(58, 8, 16, 0.22),
-    0 8px 24px -10px rgba(90, 15, 27, 0.12);
+    inset 0 1px 0 rgba(255, 251, 232, 0.92),
+    inset 0 0 0 1px rgba(201, 178, 131, 0.28),
+    0 1px 0 rgba(166, 129, 42, 0.18),
+    0 24px 50px -18px rgba(26, 36, 63, 0.20),
+    0 8px 24px -10px rgba(141, 24, 18, 0.12);
   position: relative;
 }
 .glass-panel::before {
@@ -181,17 +181,17 @@
 /* Hero title — restrained warm glow, single-source gold */
 .holographic-text {
   text-shadow:
-    0 1px 0 rgba(255, 249, 225, 0.55),
-    0 2px 16px rgba(166, 129, 42, 0.35),
-    0 1px 2px rgba(58, 8, 16, 0.25);
+    0 1px 0 rgba(255, 251, 232, 0.6),
+    0 2px 16px rgba(166, 129, 42, 0.38),
+    0 1px 2px rgba(141, 24, 18, 0.28);
   letter-spacing: -0.02em;
 }
 
 .digital-grid {
   background-size: 72px 72px;
   background-image:
-    linear-gradient(to right, rgba(90, 15, 27, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(166, 129, 42, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(141, 24, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(166, 129, 42, 0.05) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
 }
 
