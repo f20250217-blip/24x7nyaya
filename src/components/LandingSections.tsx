@@ -25,7 +25,7 @@ export function StatsPanel() {
         </h3>
         <div className="grid grid-cols-2 gap-8">
           <div className="space-y-1">
-            <div className="text-4xl font-black text-[#C8141E] tracking-tight">60k+</div>
+            <div className="text-4xl font-black text-[color:var(--accent-highlight)] tracking-tight">60k+</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.clients")}</div>
           </div>
           <div className="space-y-1">
@@ -33,7 +33,7 @@ export function StatsPanel() {
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.reached")}</div>
           </div>
           <div className="space-y-1">
-            <div className="text-4xl font-black text-[#C8141E] tracking-tight">1000+</div>
+            <div className="text-4xl font-black text-[color:var(--accent-highlight)] tracking-tight">1000+</div>
             <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("stats.lawyers")}</div>
           </div>
           <div className="space-y-1">
@@ -165,7 +165,7 @@ export function ChiefPatronSection() {
                   keywords={["Justice", "K.G. Balakrishnan"]}
                 />
               </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-[#C8141E] via-primary to-transparent mx-auto md:mx-0 rounded-full my-6" />
+              <div className="h-1 w-24 bg-gradient-to-r from-[color:var(--accent-highlight)] via-primary to-transparent mx-auto md:mx-0 rounded-full my-6" />
             </motion.div>
 
             <motion.div
@@ -331,7 +331,7 @@ export function ConstitutionSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#C8141E] via-[#A6812A] to-[#C8141E] tracking-tight"
+              className="text-3xl md:text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[color:var(--wordmark-b-from)] via-[color:var(--primary)] to-[color:var(--wordmark-b-from)] tracking-tight"
             >
               {t("const.title")}
             </motion.h2>

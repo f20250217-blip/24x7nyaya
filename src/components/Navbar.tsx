@@ -31,7 +31,16 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="on-dark sticky top-0 z-50 w-full border-b border-[#A6812A]/45 bg-gradient-to-r from-[#8B0E16]/93 via-[#6E0810]/90 to-[#8B0E16]/93 backdrop-blur-md shadow-[0_1px_0_rgba(166,129,42,0.22),0_8px_24px_-12px_rgba(139,14,22,0.4)]">
+    <nav
+      className="on-dark sticky top-0 z-50 w-full border-b backdrop-blur-md"
+      style={{
+        borderBottomColor: "color-mix(in srgb, var(--panel-border) 45%, transparent)",
+        backgroundImage:
+          "linear-gradient(to right, color-mix(in srgb, var(--panel-1) 93%, transparent), color-mix(in srgb, var(--panel-2) 90%, transparent), color-mix(in srgb, var(--panel-1) 93%, transparent))",
+        boxShadow:
+          "0 1px 0 color-mix(in srgb, var(--panel-border) 25%, transparent), 0 8px 24px -12px color-mix(in srgb, var(--panel-1) 55%, transparent)",
+      }}
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white">

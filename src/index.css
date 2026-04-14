@@ -43,43 +43,67 @@
 }
 
 /* ============================================================
-   24x7NYAYA — HERITAGE LEGAL LUXURY
-   Creamy Ivory · Heritage Brick-Red (#C8141E) · Antique Gold · Deep Navy
-   Palette aligned with the live client site (24x7nyaya.com).
+   24x7NYAYA — PREMIUM PALETTE SYSTEM
+   Five curated themes selectable at runtime via ThemePicker.
+   Each theme defines the full palette role-by-role:
+     --wordmark-a-*   → hero "24x7" half
+     --wordmark-b-*   → hero "NYAYA" half
+     --panel-1/2/3    → navbar/footer dark gradient stops
+     --cream-1/2/3    → body paper gradient stops
+     plus shadcn vars (--background, --primary, --secondary…)
    ============================================================ */
-:root {
+
+/* ---------- Default theme: Heritage Crimson (client-approved) ---------- */
+:root, .theme-crimson {
   color-scheme: light;
   --radius: 0.375rem;
 
-  /* Creamy white — soft, warm, low-saturation ivory (no yellow cast) */
+  /* Paper */
   --background: #F7F0DF;
   --foreground: #191919;
-
   --card: #FBF5E7;
   --card-foreground: #191919;
-
   --popover: #FBF5E7;
   --popover-foreground: #191919;
-
-  /* Antique champagne gold — refined heritage gold that harmonizes with brick red */
-  --primary: #A6812A;
-  --primary-foreground: #141007;
-
-  /* Heritage brick red — exact match to the live 24x7nyaya.com brand color */
-  --secondary: #C8141E;
-  --secondary-foreground: #FBF5E7;
-
   --muted: #ECE2C5;
   --muted-foreground: #5D4C35;
+  --border: #C9B283;
+  --input: #DCC998;
+  --cream-1: #FAF4E4;
+  --cream-2: #F4EDDB;
+  --cream-3: #EEE5C9;
 
-  /* Deep maroon — darker tone of the brick red, for depth and emphasis */
+  /* Primary = Antique Gold */
+  --primary: #A6812A;
+  --primary-foreground: #141007;
+  --ring: #A6812A;
+
+  /* Secondary = Carpet Crimson */
+  --secondary: #C8141E;
+  --secondary-foreground: #FBF5E7;
+  --destructive: #C8141E;
+
+  /* Accent = Deep Maroon */
   --accent: #8B0E16;
   --accent-foreground: #FBF5E7;
 
-  --destructive: #C8141E;
-  --border: #C9B283;
-  --input: #DCC998;
-  --ring: #A6812A;
+  /* Brand roles */
+  --wordmark-a-from: #C9A74A;
+  --wordmark-a-via:  #A6812A;
+  --wordmark-a-to:   #7A5F1B;
+  --wordmark-b-from: #C8141E;
+  --wordmark-b-via:  #E02636;
+  --wordmark-b-to:   #8B0E16;
+
+  --panel-1: #8B0E16;
+  --panel-2: #4A060B;
+  --panel-3: #1F0305;
+  --panel-border: #A6812A;
+
+  --accent-highlight: #C8141E;      /* Highlight helper + stats pop */
+  --accent-highlight-soft: rgba(200, 20, 30, 0.10);
+  --glow-warm: rgba(166, 129, 42, 0.30);
+  --glow-accent: rgba(200, 20, 30, 0.10);
 
   --chart-1: #A6812A;
   --chart-2: #C8141E;
@@ -95,6 +119,226 @@
   --sidebar-accent-foreground: #FBF5E7;
   --sidebar-border: #C9B283;
   --sidebar-ring: #A6812A;
+}
+
+/* ---------- Sapphire Court — cool professional blue + silver ---------- */
+.theme-sapphire {
+  color-scheme: light;
+  --background: #EEF2F8;
+  --foreground: #0A1220;
+  --card: #F5F8FC;
+  --card-foreground: #0A1220;
+  --popover: #F5F8FC;
+  --popover-foreground: #0A1220;
+  --muted: #DBE3EE;
+  --muted-foreground: #334155;
+  --border: #94A3B8;
+  --input: #B1BFD2;
+  --cream-1: #F1F5FA;
+  --cream-2: #E7EEF7;
+  --cream-3: #DCE6F2;
+
+  --primary: #64748B;            /* Brushed steel silver */
+  --primary-foreground: #0A1220;
+  --ring: #64748B;
+  --secondary: #1E40AF;           /* Sapphire */
+  --secondary-foreground: #F5F8FC;
+  --destructive: #B91C1C;
+  --accent: #0C1E3F;              /* Deep navy */
+  --accent-foreground: #F5F8FC;
+
+  --wordmark-a-from: #94A3B8;
+  --wordmark-a-via:  #64748B;
+  --wordmark-a-to:   #334155;
+  --wordmark-b-from: #3B82F6;
+  --wordmark-b-via:  #1E40AF;
+  --wordmark-b-to:   #0C1E3F;
+
+  --panel-1: #0C1E3F;
+  --panel-2: #071335;
+  --panel-3: #020817;
+  --panel-border: #64748B;
+
+  --accent-highlight: #1E40AF;
+  --accent-highlight-soft: rgba(30, 64, 175, 0.10);
+  --glow-warm: rgba(100, 116, 139, 0.28);
+  --glow-accent: rgba(30, 64, 175, 0.12);
+}
+
+/* ---------- Forest Brief — deep emerald + warm cream + gold ---------- */
+.theme-forest {
+  color-scheme: light;
+  --background: #F2EFE2;
+  --foreground: #0B1A12;
+  --card: #F7F4E8;
+  --card-foreground: #0B1A12;
+  --popover: #F7F4E8;
+  --popover-foreground: #0B1A12;
+  --muted: #E0DCC4;
+  --muted-foreground: #3A4A36;
+  --border: #A6B590;
+  --input: #BDC9A6;
+  --cream-1: #F4F1E4;
+  --cream-2: #EDE9D4;
+  --cream-3: #E4DFC2;
+
+  --primary: #9C7A2E;             /* Warm gold */
+  --primary-foreground: #0B1A12;
+  --ring: #9C7A2E;
+  --secondary: #0F5132;           /* Deep emerald */
+  --secondary-foreground: #F7F4E8;
+  --destructive: #8B0E16;
+  --accent: #053920;              /* Forest */
+  --accent-foreground: #F7F4E8;
+
+  --wordmark-a-from: #BD9845;
+  --wordmark-a-via:  #9C7A2E;
+  --wordmark-a-to:   #6E561E;
+  --wordmark-b-from: #1F7A4A;
+  --wordmark-b-via:  #0F5132;
+  --wordmark-b-to:   #053920;
+
+  --panel-1: #053920;
+  --panel-2: #02200F;
+  --panel-3: #010F06;
+  --panel-border: #9C7A2E;
+
+  --accent-highlight: #0F5132;
+  --accent-highlight-soft: rgba(15, 81, 50, 0.10);
+  --glow-warm: rgba(156, 122, 46, 0.28);
+  --glow-accent: rgba(15, 81, 50, 0.10);
+}
+
+/* ---------- Emerald Heritage — rich jewel emerald + antique gold ---------- */
+.theme-emerald {
+  color-scheme: light;
+  --background: #EEF4EC;
+  --foreground: #0A1D12;
+  --card: #F4FAF3;
+  --card-foreground: #0A1D12;
+  --popover: #F4FAF3;
+  --popover-foreground: #0A1D12;
+  --muted: #D9E5D5;
+  --muted-foreground: #2D4A38;
+  --border: #7FA68A;
+  --input: #9DBBA3;
+  --cream-1: #F0F6EE;
+  --cream-2: #E6EFE2;
+  --cream-3: #D9E8D3;
+
+  --primary: #A6812A;             /* Antique gold */
+  --primary-foreground: #0A1D12;
+  --ring: #A6812A;
+  --secondary: #047857;           /* Jewel emerald */
+  --secondary-foreground: #F4FAF3;
+  --destructive: #8B0E16;
+  --accent: #022C22;              /* Deep emerald */
+  --accent-foreground: #F4FAF3;
+
+  --wordmark-a-from: #C9A74A;
+  --wordmark-a-via:  #A6812A;
+  --wordmark-a-to:   #7A5F1B;
+  --wordmark-b-from: #10B981;
+  --wordmark-b-via:  #047857;
+  --wordmark-b-to:   #022C22;
+
+  --panel-1: #022C22;
+  --panel-2: #011811;
+  --panel-3: #000A07;
+  --panel-border: #A6812A;
+
+  --accent-highlight: #047857;
+  --accent-highlight-soft: rgba(4, 120, 87, 0.10);
+  --glow-warm: rgba(166, 129, 42, 0.28);
+  --glow-accent: rgba(4, 120, 87, 0.12);
+}
+
+/* ---------- Teal Aurum — deep teal + warm aged gold ---------- */
+.theme-teal {
+  color-scheme: light;
+  --background: #EEF4F4;
+  --foreground: #0A1A1C;
+  --card: #F4FAF9;
+  --card-foreground: #0A1A1C;
+  --popover: #F4FAF9;
+  --popover-foreground: #0A1A1C;
+  --muted: #D4E2E2;
+  --muted-foreground: #2D4A4A;
+  --border: #7FA6A6;
+  --input: #9DBBBB;
+  --cream-1: #F0F6F6;
+  --cream-2: #E3EDED;
+  --cream-3: #D4E2E2;
+
+  --primary: #B8893A;             /* Aged gold */
+  --primary-foreground: #0A1A1C;
+  --ring: #B8893A;
+  --secondary: #0F766E;           /* Deep teal */
+  --secondary-foreground: #F4FAF9;
+  --destructive: #8B0E16;
+  --accent: #042F2E;              /* Abyss teal */
+  --accent-foreground: #F4FAF9;
+
+  --wordmark-a-from: #D4A84F;
+  --wordmark-a-via:  #B8893A;
+  --wordmark-a-to:   #805F22;
+  --wordmark-b-from: #14B8A6;
+  --wordmark-b-via:  #0F766E;
+  --wordmark-b-to:   #042F2E;
+
+  --panel-1: #042F2E;
+  --panel-2: #021B1A;
+  --panel-3: #000A0A;
+  --panel-border: #B8893A;
+
+  --accent-highlight: #0F766E;
+  --accent-highlight-soft: rgba(15, 118, 110, 0.10);
+  --glow-warm: rgba(184, 137, 58, 0.28);
+  --glow-accent: rgba(15, 118, 110, 0.12);
+}
+
+/* ---------- Slate Platinum — monochrome luxury neutral ---------- */
+.theme-slate {
+  color-scheme: light;
+  --background: #F1F0ED;
+  --foreground: #0E0E10;
+  --card: #F8F7F3;
+  --card-foreground: #0E0E10;
+  --popover: #F8F7F3;
+  --popover-foreground: #0E0E10;
+  --muted: #DEDCD6;
+  --muted-foreground: #44434A;
+  --border: #A1A0A0;
+  --input: #C1C0BD;
+  --cream-1: #F3F2EE;
+  --cream-2: #E9E7E2;
+  --cream-3: #DEDCD6;
+
+  --primary: #B58A2F;             /* Brushed gold accent */
+  --primary-foreground: #0E0E10;
+  --ring: #B58A2F;
+  --secondary: #2D2D33;           /* Graphite */
+  --secondary-foreground: #F8F7F3;
+  --destructive: #8B0E16;
+  --accent: #0A0A0C;              /* Near-black */
+  --accent-foreground: #F8F7F3;
+
+  --wordmark-a-from: #D1A846;
+  --wordmark-a-via:  #B58A2F;
+  --wordmark-a-to:   #7D601F;
+  --wordmark-b-from: #44434A;
+  --wordmark-b-via:  #2D2D33;
+  --wordmark-b-to:   #0A0A0C;
+
+  --panel-1: #0E0E10;
+  --panel-2: #07070A;
+  --panel-3: #020203;
+  --panel-border: #B58A2F;
+
+  --accent-highlight: #2D2D33;
+  --accent-highlight-soft: rgba(45, 45, 51, 0.10);
+  --glow-warm: rgba(181, 138, 47, 0.28);
+  --glow-accent: rgba(45, 45, 51, 0.08);
 }
 
 .dark {
@@ -124,14 +368,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #F7F0DF !important;
-    /* Layered creamy paper: gold halo top, brick-red vignette bottom, subtle navy undertone */
+    background-color: var(--background) !important;
+    /* Layered warm paper: primary halo top, accent vignette bottom */
     background-image:
-      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(166, 129, 42, 0.14) 0%, transparent 65%),
-      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(200, 20, 30, 0.09) 0%, transparent 70%),
-      radial-gradient(circle at 10% 30%, rgba(166, 129, 42, 0.05) 0%, transparent 42%),
-      radial-gradient(circle at 90% 70%, rgba(200, 20, 30, 0.05) 0%, transparent 42%),
-      linear-gradient(180deg, #FAF4E4 0%, #F4EDDB 55%, #EEE5C9 100%);
+      radial-gradient(ellipse 60% 40% at 50% 0%, var(--glow-warm) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, var(--glow-accent) 0%, transparent 70%),
+      radial-gradient(circle at 10% 30%, var(--glow-warm) 0%, transparent 42%),
+      radial-gradient(circle at 90% 70%, var(--glow-accent) 0%, transparent 42%),
+      linear-gradient(180deg, var(--cream-1) 0%, var(--cream-2) 55%, var(--cream-3) 100%);
     background-attachment: fixed;
     font-feature-settings: "ss01", "ss02", "cv11", "salt";
     -webkit-font-smoothing: antialiased;
@@ -144,15 +388,15 @@
 
   /* Scrollbar — brass on parchment */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: #EEE5C9; }
+  ::-webkit-scrollbar-track { background: var(--cream-3); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #A6812A, #C8141E);
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
     border-radius: 10px;
-    border: 2px solid #EEE5C9;
+    border: 2px solid var(--cream-3);
   }
-  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #C9A74A, #A32419); }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--primary), var(--accent)); }
 
-  ::selection { background: #A6812A; color: #14100C; }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
 }
 
 /* ---- Editorial glass card: layered warm paper with gold hairline ---- */

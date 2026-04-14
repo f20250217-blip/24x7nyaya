@@ -14,6 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { WebGLErrorBoundary } from "@/components/WebGLErrorBoundary";
 import { isWebGLAvailable } from "@/lib/utils";
 import { Highlight } from "@/lib/highlight";
+import { ThemePicker } from "@/components/ThemePicker";
 
 const TRAIL_LENGTH = 32;
 
@@ -239,6 +240,7 @@ export default function Landing() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
       <Navbar />
       <SideWords />
+      <ThemePicker />
       
       {/* 3D Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -271,12 +273,18 @@ export default function Landing() {
         <div
           className="absolute inset-0 z-20 pointer-events-none mix-blend-multiply"
           style={{
-            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(166, 129, 42, 0.30), rgba(200, 20, 30, 0.10) 40%, transparent 70%)`,
+            background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, var(--glow-warm), var(--glow-accent) 40%, transparent 70%)`,
             filter: "blur(90px)",
             opacity: 0.8,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F4EDDB]/25 to-[#F7F0DF]/85 z-10" />
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, transparent, color-mix(in srgb, var(--cream-2) 25%, transparent), color-mix(in srgb, var(--background) 85%, transparent))",
+          }}
+        />
         <div className="absolute inset-0 digital-grid opacity-20 z-0" />
       </div>
 
@@ -323,8 +331,24 @@ export default function Landing() {
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 holographic-text">
-              <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#C9A74A] via-[#A6812A] to-[#7A5F1B]">24x7</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#C8141E] via-[#E02636] to-[#8B0E16]">NYAYA</span>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom right, var(--wordmark-a-from), var(--wordmark-a-via), var(--wordmark-a-to))",
+                }}
+              >
+                24x7
+              </span>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom right, var(--wordmark-b-from), var(--wordmark-b-via), var(--wordmark-b-to))",
+                }}
+              >
+                NYAYA
+              </span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -333,7 +357,10 @@ export default function Landing() {
                 keywords={["India's", "Legal Assistance", "Legal Consultations", "Counselling", "leading"]}
               />
               <br />
-              <span className="text-[#C8141E] font-semibold italic">
+              <span
+                className="font-semibold italic"
+                style={{ color: "var(--accent-highlight)" }}
+              >
                 {t("hero.bridge")}
               </span>
             </p>
@@ -387,7 +414,14 @@ export default function Landing() {
         </div>
 
         {/* Footer */}
-        <footer className="on-dark relative overflow-hidden border-t border-[#A6812A]/45 bg-gradient-to-b from-[#8B0E16] via-[#4A060B] to-[#1F0305] mt-24">
+        <footer
+          className="on-dark relative overflow-hidden border-t mt-24"
+          style={{
+            borderTopColor: "color-mix(in srgb, var(--panel-border) 45%, transparent)",
+            backgroundImage:
+              "linear-gradient(to bottom, var(--panel-1), var(--panel-2), var(--panel-3))",
+          }}
+        >
           {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
