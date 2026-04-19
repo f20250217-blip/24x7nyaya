@@ -1,6 +1,35 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export type Language = 'English' | 'Hindi' | 'Marathi' | 'Gujarati';
+
+const LOCALE_TO_LANGUAGE: Record<string, Language> = {
+  en: 'English',
+  hi: 'Hindi',
+  mr: 'Marathi',
+  gu: 'Gujarati',
+};
+
+const LANGUAGE_TO_LOCALE: Record<Language, string> = {
+  English: 'en',
+  Hindi: 'hi',
+  Marathi: 'mr',
+  Gujarati: 'gu',
+};
+
+function detectLanguage(): Language {
+  if (typeof window === 'undefined') return 'English';
+  try {
+    const saved = localStorage.getItem('24x7nyaya.lang');
+    if (saved && saved in LANGUAGE_TO_LOCALE) return saved as Language;
+  } catch {}
+  const candidates = [navigator.language, ...(navigator.languages || [])];
+  for (const bcp of candidates) {
+    if (!bcp) continue;
+    const primary = bcp.toLowerCase().split('-')[0];
+    if (LOCALE_TO_LANGUAGE[primary]) return LOCALE_TO_LANGUAGE[primary];
+  }
+  return 'English';
+}
 
 type Translations = Record<string, string>;
 
@@ -302,10 +331,22 @@ const translations: Record<Language, Translations> = {
 const LanguageContext = createContext<any>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('English');
+  const [language, setLanguageState] = useState<Language>('English');
+
+  useEffect(() => {
+    const detected = detectLanguage();
+    setLanguageState(detected);
+    try { document.documentElement.lang = LANGUAGE_TO_LOCALE[detected] || 'en'; } catch {}
+  }, []);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try { localStorage.setItem('24x7nyaya.lang', lang); } catch {}
+    try { document.documentElement.lang = LANGUAGE_TO_LOCALE[lang] || 'en'; } catch {}
+  };
 
   const t = (key: string) => {
-    return translations[language][key] || key;
+    return translations[language][key] || translations.English[key] || key;
   };
 
   return (
