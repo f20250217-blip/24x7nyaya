@@ -6,10 +6,12 @@ import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { useContactDialog } from "@/components/ContactDialog";
 
 export function Navbar() {
   const { isAuthenticated, signOut } = useAuth();
   const { language, setLanguage, t } = useLanguage();
+  const { open: openContact } = useContactDialog();
   const [isLangOpen, setIsLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
@@ -41,15 +43,27 @@ export function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/find-lawyer" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <button
+            type="button"
+            onClick={() => openContact("Find a Lawyer")}
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+          >
             {t("nav.findLawyer")}
-          </Link>
-          <Link to="/knowledge" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          </button>
+          <button
+            type="button"
+            onClick={() => openContact("Knowledge Hub")}
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+          >
             {t("nav.knowledgeHub")}
-          </Link>
-          <Link to="/for-lawyers" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          </button>
+          <button
+            type="button"
+            onClick={() => openContact("For Lawyers")}
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+          >
             {t("nav.forLawyers")}
-          </Link>
+          </button>
         </div>
 
         <div className="flex items-center gap-4">

@@ -14,6 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { WebGLErrorBoundary } from "@/components/WebGLErrorBoundary";
 import { isWebGLAvailable } from "@/lib/utils";
 import { Highlight } from "@/lib/highlight";
+import { useContactDialog } from "@/components/ContactDialog";
 
 const TRAIL_LENGTH = 32;
 
@@ -100,6 +101,7 @@ export default function Landing() {
   const idleTimeoutRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const { open: openContact } = useContactDialog();
   const [isMobile, setIsMobile] = useState(false);
   const [hasWebGL, setHasWebGL] = useState(true);
 
@@ -339,12 +341,14 @@ export default function Landing() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-md mx-auto">
-              <Link to="/find-lawyer" className="w-full">
-                <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-background font-bold text-lg h-14 rounded-xl shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all duration-300">
-                  {t("hero.cta")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                onClick={() => openContact("Find a Lawyer")}
+                className="w-full bg-primary hover:bg-primary/90 text-background font-bold text-lg h-14 rounded-xl shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all duration-300"
+              >
+                {t("hero.cta")}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
           </motion.div>
 
@@ -444,36 +448,24 @@ export default function Landing() {
                   {t("footer.quickLinks")}
                 </h3>
                 <ul className="space-y-3">
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.services")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.about")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.contact")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.terms")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.privacy")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block">
-                      {t("footer.disclaimer")}
-                    </a>
-                  </li>
+                  {([
+                    { label: t("footer.services"), purpose: "Services" as const },
+                    { label: t("footer.about"), purpose: "About Us" as const },
+                    { label: t("footer.contact"), purpose: "Contact" as const },
+                    { label: t("footer.terms"), purpose: "Terms & Conditions" as const },
+                    { label: t("footer.privacy"), purpose: "Privacy Policy" as const },
+                    { label: t("footer.disclaimer"), purpose: "Disclaimer" as const },
+                  ]).map((link) => (
+                    <li key={link.purpose}>
+                      <button
+                        type="button"
+                        onClick={() => openContact(link.purpose)}
+                        className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
+                      >
+                        {link.label}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -485,14 +477,28 @@ export default function Landing() {
                   {t("footer.rights")}
                 </p>
                 <div className="flex gap-4">
-                  <a href="#" className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary">
-                    <span className="text-lg">𝕏</span>
+                  <a
+                    href={`https://wa.me/918090302222?text=${encodeURIComponent("Hi, I have a query for 24x7Nyaya.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp 24x7Nyaya"
+                    className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary"
+                  >
+                    <span className="text-lg">💬</span>
                   </a>
-                  <a href="#" className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary">
-                    <span className="text-lg">in</span>
+                  <a
+                    href="mailto:info@24x7nyaya.com"
+                    aria-label="Email 24x7Nyaya"
+                    className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary"
+                  >
+                    <span className="text-lg">✉</span>
                   </a>
-                  <a href="#" className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary">
-                    <span className="text-lg">f</span>
+                  <a
+                    href="tel:+918090302222"
+                    aria-label="Call 24x7Nyaya"
+                    className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10 hover:border-primary"
+                  >
+                    <span className="text-lg">📞</span>
                   </a>
                 </div>
               </div>

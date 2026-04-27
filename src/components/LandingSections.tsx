@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Shield, Globe, Search, FileText, Building, PenTool, Users, Briefcase, Scale, Book, Flag, Landmark, Gavel, Target, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Highlight } from "@/lib/highlight";
+import { useContactDialog } from "@/components/ContactDialog";
 
 // Premium easing curve
 const smoothEase = [0.25, 0.1, 0.25, 1.0];
@@ -259,6 +259,7 @@ export function MissionVisionSection() {
 
 export function UserSegments() {
   const { t } = useLanguage();
+  const { open: openContact } = useContactDialog();
   return (
     <div className="w-full">
       <motion.div
@@ -271,13 +272,13 @@ export function UserSegments() {
         <h2 className="text-3xl font-bold mb-4">{t("segments.title")}</h2>
         <p className="text-muted-foreground">{t("segments.subtitle")}</p>
       </motion.div>
-      
+
       <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { icon: Users, title: t("segments.individuals"), desc: t("segments.individualsDesc"), action: t("segments.getHelp") },
-          { icon: Briefcase, title: t("segments.corporates"), desc: t("segments.corporatesDesc"), action: t("segments.solutions") },
-          { icon: Scale, title: t("segments.interns"), desc: t("segments.internsDesc"), action: t("segments.joinUs") }
-        ].map((segment, i) => (
+        {([
+          { icon: Users, title: t("segments.individuals"), desc: t("segments.individualsDesc"), action: t("segments.getHelp"), purpose: "Get Help" as const },
+          { icon: Briefcase, title: t("segments.corporates"), desc: t("segments.corporatesDesc"), action: t("segments.solutions"), purpose: "Solutions" as const },
+          { icon: Scale, title: t("segments.interns"), desc: t("segments.internsDesc"), action: t("segments.joinUs"), purpose: "Join Us" as const }
+        ]).map((segment, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 50 }}
@@ -290,7 +291,11 @@ export function UserSegments() {
             <segment.icon className="h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
             <h3 className="text-2xl font-bold mb-2">{segment.title}</h3>
             <p className="text-muted-foreground mb-8 h-12">{segment.desc}</p>
-            <Button variant="outline" className="w-full border-primary/30 hover:bg-primary hover:text-black transition-all duration-300">
+            <Button
+              variant="outline"
+              onClick={() => openContact(segment.purpose)}
+              className="w-full border-primary/30 hover:bg-primary hover:text-black transition-all duration-300"
+            >
               {segment.action}
             </Button>
           </motion.div>
@@ -387,8 +392,9 @@ export function ConstitutionSection() {
 
 export function FinalCTA() {
   const { t } = useLanguage();
+  const { open: openContact } = useContactDialog();
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.9, y: 50 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 1, ease: smoothEase }}
@@ -409,11 +415,13 @@ export function FinalCTA() {
             keywords={["60,000 clients", "justice", "path to justice"]}
           />
         </p>
-        <Link to="/find-lawyer">
-          <Button size="lg" className="bg-white text-black hover:bg-white/90 text-lg px-10 h-14 rounded-full font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-            {t("cta.button")}
-          </Button>
-        </Link>
+        <Button
+          size="lg"
+          onClick={() => openContact("Find a Lawyer")}
+          className="bg-white text-black hover:bg-white/90 text-lg px-10 h-14 rounded-full font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+        >
+          {t("cta.button")}
+        </Button>
       </div>
     </motion.div>
   );
