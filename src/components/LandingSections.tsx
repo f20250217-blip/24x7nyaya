@@ -287,7 +287,7 @@ export function UserSegments() {
             viewport={{ margin: "-50px", once: true }}
             className="group relative overflow-hidden rounded-xl glass-panel p-8 hover:bg-white/5 transition-all duration-500 border border-white/5 hover:border-primary/50"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             <segment.icon className="h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
             <h3 className="text-2xl font-bold mb-2">{segment.title}</h3>
             <p className="text-muted-foreground mb-8 h-12">{segment.desc}</p>
