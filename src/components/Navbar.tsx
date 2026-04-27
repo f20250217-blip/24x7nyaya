@@ -50,16 +50,17 @@ export function Navbar() {
           >
             {t("nav.findLawyer")}
           </button>
-          <button
-            type="button"
-            onClick={() => openContact("Knowledge Hub")}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+          <a
+            href="https://www.indiacode.nic.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             {t("nav.knowledgeHub")}
-          </button>
+          </a>
           <button
             type="button"
-            onClick={() => openContact("For Lawyers")}
+            onClick={() => openContact("Lawyer Registration")}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
           >
             {t("nav.forLawyers")}

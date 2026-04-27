@@ -18,17 +18,11 @@ const NYAYA_EMAIL = "info@24x7nyaya.com";
 
 type ContactPurpose =
   | "Find a Lawyer"
-  | "Knowledge Hub"
-  | "For Lawyers"
+  | "Lawyer Registration"
   | "Get Help"
   | "Solutions"
   | "Join Us"
-  | "Services"
-  | "About Us"
   | "Contact"
-  | "Terms & Conditions"
-  | "Privacy Policy"
-  | "Disclaimer"
   | "General Inquiry";
 
 type ContactDialogContextValue = {
@@ -50,6 +44,11 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  // lawyer-mode fields
+  const [barCouncilNumber, setBarCouncilNumber] = useState("");
+  const [stateBar, setStateBar] = useState("");
+  const [yearsExp, setYearsExp] = useState("");
+  const [practiceAreas, setPracticeAreas] = useState("");
 
   const open = useCallback((p: ContactPurpose = "General Inquiry") => {
     setPurpose(p);
@@ -61,9 +60,30 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
     setPhone("");
     setEmail("");
     setMessage("");
+    setBarCouncilNumber("");
+    setStateBar("");
+    setYearsExp("");
+    setPracticeAreas("");
   };
 
+  const isLawyerMode = purpose === "Lawyer Registration";
+
   const buildBody = () => {
+    if (isLawyerMode) {
+      return [
+        `Lawyer registration request via 24x7Nyaya website`,
+        ``,
+        `Name: ${name || "(not provided)"}`,
+        `Phone: ${phone || "(not provided)"}`,
+        `Email: ${email || "(not provided)"}`,
+        `Bar Council Number: ${barCouncilNumber || "(not provided)"}`,
+        `State Bar Council: ${stateBar || "(not provided)"}`,
+        `Years of Experience: ${yearsExp || "(not provided)"}`,
+        `Practice Areas: ${practiceAreas || "(not provided)"}`,
+        ``,
+        message ? `Note:\n${message}` : "",
+      ].filter(Boolean).join("\n");
+    }
     return [
       `New inquiry via 24x7Nyaya website`,
       ``,
@@ -86,7 +106,12 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
       toast.error("Please share at least a phone number or email so we can reach you");
       return false;
     }
-    if (!message.trim()) {
+    if (isLawyerMode) {
+      if (!barCouncilNumber.trim()) {
+        toast.error("Bar Council registration number is required");
+        return false;
+      }
+    } else if (!message.trim()) {
       toast.error("Please describe your query");
       return false;
     }
@@ -97,7 +122,7 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
     if (!validate()) return;
     const url = `https://wa.me/${NYAYA_PHONE}?text=${encodeURIComponent(buildBody())}`;
     window.open(url, "_blank", "noopener,noreferrer");
-    toast.success("Opening WhatsApp — your query is prefilled. Just hit send.");
+    toast.success("Opening WhatsApp — your details are prefilled. Just hit send.");
     setIsOpen(false);
     reset();
   };
@@ -107,24 +132,25 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
     const subject = `[24x7Nyaya] ${purpose} — ${name}`;
     const url = `mailto:${NYAYA_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBody())}`;
     window.location.href = url;
-    toast.success("Opening your email client — your query is prefilled.");
+    toast.success("Opening your email client — your details are prefilled.");
     setIsOpen(false);
     reset();
   };
 
   const value = useMemo(() => ({ open }), [open]);
 
+  const description = isLawyerMode
+    ? `Register your practice with 24x7Nyaya. Our team will reach out via ${NYAYA_PHONE_DISPLAY}.`
+    : `Share your details and we'll reach out. Your query goes straight to ${NYAYA_PHONE_DISPLAY}.`;
+
   return (
     <ContactDialogContext.Provider value={value}>
       {children}
       <Dialog open={isOpen} onOpenChange={(next) => { setIsOpen(next); if (!next) reset(); }}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl">{purpose}</DialogTitle>
-            <DialogDescription>
-              Share your details and we'll reach out. Your query goes straight to{" "}
-              <span className="font-semibold text-foreground">{NYAYA_PHONE_DISPLAY}</span>.
-            </DialogDescription>
+            <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
 
           <div className="space-y-3">
@@ -159,16 +185,69 @@ export function ContactDialogProvider({ children }: { children: React.ReactNode 
                 />
               </div>
             </div>
-            <div>
-              <label className="text-sm font-medium mb-1.5 block">Your Query *</label>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Briefly describe what you need help with…"
-                rows={4}
-                className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] flex w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none"
-              />
-            </div>
+
+            {isLawyerMode ? (
+              <>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-sm font-medium mb-1.5 block">Bar Council Reg. No. *</label>
+                    <Input
+                      value={barCouncilNumber}
+                      onChange={(e) => setBarCouncilNumber(e.target.value)}
+                      placeholder="e.g. D/1234/2018"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1.5 block">State Bar Council</label>
+                    <Input
+                      value={stateBar}
+                      onChange={(e) => setStateBar(e.target.value)}
+                      placeholder="e.g. Delhi, Maharashtra"
+                    />
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-sm font-medium mb-1.5 block">Years of Experience</label>
+                    <Input
+                      value={yearsExp}
+                      onChange={(e) => setYearsExp(e.target.value)}
+                      placeholder="e.g. 5"
+                      inputMode="numeric"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1.5 block">Practice Areas</label>
+                    <Input
+                      value={practiceAreas}
+                      onChange={(e) => setPracticeAreas(e.target.value)}
+                      placeholder="Civil, Criminal, Corporate…"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-1.5 block">Note (optional)</label>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Anything else you'd like us to know…"
+                    rows={3}
+                    className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] flex w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none"
+                  />
+                </div>
+              </>
+            ) : (
+              <div>
+                <label className="text-sm font-medium mb-1.5 block">Your Query *</label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Briefly describe what you need help with…"
+                  rows={4}
+                  className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] flex w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none"
+                />
+              </div>
+            )}
 
             <div className="rounded-md border border-primary/20 bg-primary/5 p-3 text-xs text-muted-foreground space-y-1.5">
               <div className="flex items-center gap-2">

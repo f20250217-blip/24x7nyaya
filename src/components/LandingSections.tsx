@@ -49,8 +49,8 @@ export function StatsPanel() {
 export function ServicesPanel() {
   const { t } = useLanguage();
   return (
-    <div className="flex justify-start">
-      <motion.div 
+    <div id="services" className="flex justify-start scroll-mt-24">
+      <motion.div
         initial={{ opacity: 0, x: -100, y: 50 }}
         whileInView={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 1, ease: smoothEase }}
@@ -203,7 +203,7 @@ export function ChiefPatronSection() {
 export function MissionVisionSection() {
   const { t } = useLanguage();
   return (
-    <div className="w-full grid md:grid-cols-2 gap-8">
+    <div id="about" className="w-full grid md:grid-cols-2 gap-8 scroll-mt-24">
       {/* Mission */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}

@@ -15,6 +15,7 @@ import { WebGLErrorBoundary } from "@/components/WebGLErrorBoundary";
 import { isWebGLAvailable } from "@/lib/utils";
 import { Highlight } from "@/lib/highlight";
 import { useContactDialog } from "@/components/ContactDialog";
+import { useInfoModal } from "@/components/InfoModal";
 
 const TRAIL_LENGTH = 32;
 
@@ -102,6 +103,7 @@ export default function Landing() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const { open: openContact } = useContactDialog();
+  const { open: openInfo } = useInfoModal();
   const [isMobile, setIsMobile] = useState(false);
   const [hasWebGL, setHasWebGL] = useState(true);
 
@@ -448,24 +450,58 @@ export default function Landing() {
                   {t("footer.quickLinks")}
                 </h3>
                 <ul className="space-y-3">
-                  {([
-                    { label: t("footer.services"), purpose: "Services" as const },
-                    { label: t("footer.about"), purpose: "About Us" as const },
-                    { label: t("footer.contact"), purpose: "Contact" as const },
-                    { label: t("footer.terms"), purpose: "Terms & Conditions" as const },
-                    { label: t("footer.privacy"), purpose: "Privacy Policy" as const },
-                    { label: t("footer.disclaimer"), purpose: "Disclaimer" as const },
-                  ]).map((link) => (
-                    <li key={link.purpose}>
-                      <button
-                        type="button"
-                        onClick={() => openContact(link.purpose)}
-                        className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
-                      >
-                        {link.label}
-                      </button>
-                    </li>
-                  ))}
+                  <li>
+                    <a
+                      href="#services"
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                    >
+                      {t("footer.services")}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#about"
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                    >
+                      {t("footer.about")}
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => openContact("Contact")}
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
+                    >
+                      {t("footer.contact")}
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => openInfo("terms")}
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
+                    >
+                      {t("footer.terms")}
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => openInfo("privacy")}
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
+                    >
+                      {t("footer.privacy")}
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => openInfo("disclaimer")}
+                      className="text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 inline-block text-left cursor-pointer bg-transparent border-0 p-0"
+                    >
+                      {t("footer.disclaimer")}
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
